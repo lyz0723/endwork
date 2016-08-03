@@ -67,7 +67,7 @@ class LoginController extends Controller
     }
     //获取code
     public function code(){
-        $code=Request::input('code');
+        $code=$_GET['code'];
         echo $code;
     }
 }
