@@ -79,6 +79,7 @@ class LoginController extends Controller
         //通过$access_token拉去用户信息
         $url1="https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$appId&lang=zh_CN ";
         $news=file_get_contents($url1);
+        $news=json_decode($news,true);
         //openid
         $openid=$news['openid'];
         echo $openid."<br/>";
