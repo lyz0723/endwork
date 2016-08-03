@@ -33,10 +33,13 @@ Route::get('main','PersonController@main');
 Route::get('Userlogin','LoginController@index');
 //判断用户登录
 Route::post('login_do','LoginController@login_do');
-//微信扫码登录
+//
 Route::get('weixin','LoginController@weixin');
 //获取微信公众号code
 Route::get('code','LoginController@code');
+//微信基本功能
+Route::get('weixins','LoginController@weixins');
+
 //用户注册页面
 Route::get('Userregister','RegisterController@index');
 //验证码
