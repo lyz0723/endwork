@@ -60,14 +60,15 @@ class LoginController extends Controller
         //测试号
         $appId="wx9036c924e93284c6";
         //$appSecret="b6ace35d7f3820f253b6c770d6a028e4";
-        $url="http://www.zhangqiuxiang.top";
+        $url="http://www.zhangqiuxiang.top/endwork/hospital/public/code";
         $url=urlencode($url);
         $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appId&redirect_uri=$url&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
-        echo $url;
+        header( 'location:'. $url);
     }
     //获取code
     public function code(){
         $code=Request::input('code');
+        echo $code;
     }
 }
 ?>
