@@ -67,8 +67,15 @@ class LoginController extends Controller
     }
     //获取code
     public function code(){
+        $appId="wx9036c924e93284c6";
+        $appSecret="b6ace35d7f3820f253b6c770d6a028e4";
         $code=$_GET['code'];
-        echo $code;
+        //通过获取的code去获取
+        $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appId&secret=$appSecret&code=$code&grant_type=authorization_code ";
+        $file=file_get_contents($url);
+        $arr=json_decode($file,true);
+        $access_token=$arr['access_token'];
+        echo $access_token;
     }
 }
 ?>
