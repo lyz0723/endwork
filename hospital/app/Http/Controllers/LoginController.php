@@ -75,7 +75,31 @@ class LoginController extends Controller
         $file=file_get_contents($url);
         $arr=json_decode($file,true);
         $access_token=$arr['access_token'];
-        echo $access_token;
+        //echo $access_token;
+        //通过$access_token拉去用户信息
+        $url1="https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$appId&lang=zh_CN ";
+        $news=file_get_contents($url1);
+        //openid
+        $openid=$news['openid'];
+        echo $openid."<br/>";
+        //昵称
+        $name=$news['nickname'];
+        echo $name."<br/>";
+        //性别
+        $sex=$news['sex'];
+        echo $sex."<br/>";
+        //用户个人资料填写的省份
+        $province=$news['province'];
+        echo $province."<br/>";
+        //城市
+        $city=$news['city'];
+        echo $city."<br/>";
+        //国家
+        $country=$news['country'];
+        echo $country."<br/>";
+        //头像
+        $headimgurl=$news['headimgurl'];
+        echo $headimgurl."<br/>";
     }
 }
 ?>
