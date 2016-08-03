@@ -63,7 +63,7 @@ class LoginController extends Controller
         $url="http://www.zhangqiuxiang.top/endwork/hospital/public/code";
         $url=urlencode($url);
         $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appId&redirect_uri=$url&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
-        header( 'location:'. $url);
+        echo $url;
     }
     //获取code
     public function code(){
