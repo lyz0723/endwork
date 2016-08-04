@@ -50,10 +50,10 @@
     });
 
     wx.onMenuShareAppMessage({
-        title: 'dssfd',
-        desc: 'saffsad',
-        link: 'ddfs',
-        imgUrl: 'sdsd',
+        title: '<?php echo $news['Title'];?>',
+        desc: '<?php echo $news['Description'];?>',
+        link: '<?php echo $news['Url'];?>',
+        imgUrl: '<?php echo $news['PicUrl'];?>',
         trigger: function (res) {
             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
             // alert('用户点击发送给朋友');
@@ -70,9 +70,9 @@
     });
 
     wx.onMenuShareTimeline({
-        title: 'dsd',
-        link: 'afddsf',
-        imgUrl: 'sdasf',
+        title: '<?php echo $news['Title'];?>',
+        link: '<?php echo $news['Url'];?>',
+        imgUrl: '<?php echo $news['PicUrl'];?>',
         trigger: function (res) {
             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
             // alert('用户点击分享到朋友圈');
