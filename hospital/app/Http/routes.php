@@ -44,6 +44,8 @@ Route::get('code','LoginController@code');
  * */
 //获取jsapi_ticket
 Route::get('ticket','LoginController@ticket');
+//获取签名signature
+Route::get('SignPackage','LoginController@getSignPackage');
 //用户注册页面
 Route::get('Userregister','RegisterController@index');
 //验证码
