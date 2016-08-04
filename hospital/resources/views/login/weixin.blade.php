@@ -2,12 +2,13 @@
 <html>
 <head>
     <title>Laravel</title>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
 </head>
 <body>
 <?php
     print_r($news);
 ?>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     wx.config({
         debug: false,
@@ -24,7 +25,29 @@
             'onMenuShareAppMessage'
         ]
     });
+
     wx.ready(function () {
+        wx.getLocation({
+            type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+            success: function (res) {
+                var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                var speed = res.speed; // 速度，以米/每秒计
+                var accuracy = res.accuracy; // 位置精度
+            }
+        });
+
+        wx.checkJsApi({
+            jsApiList: [
+                'getLocation',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ],
+            success: function (res) {
+                alert(JSON.stringify(res));
+            }
+        });
+
         wx.onMenuShareAppMessage({
             title: '<?php echo $news['Title'];?>',
             desc: '<?php echo $news['Description'];?>',
@@ -54,7 +77,7 @@
                 // alert('用户点击分享到朋友圈');
             },
             success: function (res) {
-                alert('已分享');
+                // alert('已分享');
             },
             cancel: function (res) {
                 // alert('已取消');
@@ -64,6 +87,13 @@
             }
         });
     });
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
