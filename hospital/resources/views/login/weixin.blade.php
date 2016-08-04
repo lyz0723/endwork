@@ -54,7 +54,7 @@
                 // alert('用户点击分享到朋友圈');
             },
             success: function (res) {
-                // alert('已分享');
+                alert('已分享');
             },
             cancel: function (res) {
                 // alert('已取消');
