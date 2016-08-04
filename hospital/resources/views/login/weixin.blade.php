@@ -31,8 +31,8 @@
             'onMenuShareTimeline',
             'onMenuShareAppMessage'
         ],
-        success: function (res) {
-            alert(JSON.stringify(res));
+        success: function () {
+            alert('abc');
         }
     });
 
@@ -87,10 +87,6 @@
             // alert(JSON.stringify(res));
         }
     });
-
-
-
-
 
 </script>
 </body>
