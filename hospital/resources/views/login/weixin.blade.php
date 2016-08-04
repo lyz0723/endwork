@@ -43,23 +43,24 @@
             }
         });
 
+        wx.onMenuShareTimeline({
+            title: '<?php echo $news['Title'];?>',
+            link: '<?php echo $news['Url'];?>',
+            imgUrl: '<?php echo $news['PicUrl'];?>',
+            success: function () {
+                alert('已分享');
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
     });
 
 
 
 
 //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
-    wx.onMenuShareTimeline({
-        title: '<?php echo $news['Title'];?>',
-        link: '<?php echo $news['Url'];?>',
-        imgUrl: '<?php echo $news['PicUrl'];?>',
-        success: function () {
-            alert('已分享');
-        },
-        cancel: function () {
-            alert('已取消');
-        }
-    });
+
 
 </script>
 </body>
