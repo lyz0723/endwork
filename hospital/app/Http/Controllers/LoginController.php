@@ -55,6 +55,20 @@ class LoginController extends Controller
          * 0：表示登录成功，1：表示密码错误，2：用户名密码错误，3：用户名不存在
          */
     }
+
+
+    //获取Access_token
+    public function getWxAccessToken(){
+        $appid="wx9036c924e93284c6";
+        $appsecret = "b6ace35d7f3820f253b6c770d6a028e4";
+        //$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=". $appid ."&secret=". $appsecret;
+        $res = file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret");
+        $res = json_decode($res, true);
+        $access_token = $res['access_token'];
+        return $access_token;
+    }
+
+
     //微信扫码登录
     public function weixin(){
         //测试号
@@ -102,29 +116,18 @@ class LoginController extends Controller
         $headimgurl=$news['headimgurl'];
         echo $headimgurl."<br/>";
     }
-    //微信基本的功能
-    public function weixins(){
-        // 1.将timestamp， nonce，token 按字典排序
-        $timestamp =$_GET['timestamp'];
-        $nonce     = $_GET['nonce'];
-        $token     = 'weixin';
-        $signature = $_GET['signature'];
-        $array     = array( $timestamp, $nonce, $token );
-        sort( $array );
-        // 2.将排序后的三个参数拼接之后用sha1加密
-        $tmpstr    = implode('', $array);
-        $tmpstr    = sha1( $tmpstr );
-        // 3.将加密后的字符串与signature进行对比，判断该请求是否来自微信
-        $echoster=$_GET['echostr'];
-        if ( $tmpstr == $signature && $echoster) {
-            echo $_GET['echostr'];
-            exit;
-        }else {
-            $this -> responseMsg();
-        }
-    }
-    public function  responseMsg(){
-        
+    /*
+     * 微信JS-SDK
+     * */
+    //获取jsapi_ticket
+    public function ticket(){
+        $access_token=$this->getWxAccessToken();
+        $url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=$access_token&type=jsapi";
+        $file=file_get_contents($url);
+        $arr=json_decode($file,true);
+        $jsapi_ticket=$arr['ticket'];
+        return $jsapi_ticket;
+
     }
 }
 ?>

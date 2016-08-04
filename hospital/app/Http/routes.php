@@ -35,11 +35,14 @@ Route::get('Userlogin','LoginController@index');
 Route::post('login_do','LoginController@login_do');
 //
 Route::get('weixin','LoginController@weixin');
+Route::get('token','LoginController@getWxAccessToken');
 //获取微信公众号code
 Route::get('code','LoginController@code');
-//微信基本功能
-Route::get('weixins','LoginController@weixins');
-
+/*
+ * 微信JS-SDK
+ * */
+//获取jsapi_ticket
+Route::get('ticket','LoginController@ticket');
 //用户注册页面
 Route::get('Userregister','RegisterController@index');
 //验证码
