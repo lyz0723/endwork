@@ -5,7 +5,7 @@
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-{{$signPackage->appId}}
+<?php echo $signPackage['appId']?>
 {{--<script>--}}
     {{--wx.config({--}}
         {{--debug: false,--}}
