@@ -40,18 +40,18 @@
         wx.getLocation({
             type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
             success: function (res) {
+                alert(1);
                 var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
                 var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
                 var speed = res.speed; // 速度，以米/每秒计
                 var accuracy = res.accuracy; // 位置精度
-                _shareAppMessage();
             }
         });
 
     });
 
-    function _shareAppMessage() {
-        // 页面加载后设置微信分享给朋友的内容
+
+        //  获取“分享给朋友”按钮点击状态及自定义分享内容接口
         wx.onMenuShareAppMessage({
             title: '圣诞老人送礼啦，现金红包人人领！', // 分享标题
             desc: '“圣诞夺包”35000份礼包等你拆！', // 分享描述
@@ -68,8 +68,8 @@
                 //alert('cancel');
             }
         });
-    }
 
+//获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
     wx.onMenuShareTimeline({
         title: '<?php echo $news['Title'];?>',
         link: '<?php echo $news['Url'];?>',
