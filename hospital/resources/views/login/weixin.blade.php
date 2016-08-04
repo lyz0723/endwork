@@ -31,8 +31,8 @@
             'onMenuShareTimeline',
             'onMenuShareAppMessage'
         ],
-        success: function () {
-            alert('abc');
+        success: function (res) {
+            alert(JSON.stringify(res));
         }
     });
 
