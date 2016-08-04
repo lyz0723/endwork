@@ -5,7 +5,9 @@
 
 </head>
 <body>
-
+<?php
+    print_r($news);
+?>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     wx.config({
@@ -26,6 +28,7 @@
     wx.checkJsApi({
         jsApiList: [
             'getLocation',
+            'onMenuShareTimeline',
             'onMenuShareAppMessage'
         ],
         success: function (res) {
@@ -67,6 +70,17 @@
         });
     }
 
+    wx.onMenuShareTimeline({
+        title: '<?php echo $news['Title'];?>',
+        link: '<?php echo $news['Url'];?>',
+        imgUrl: '<?php echo $news['PicUrl'];?>',
+        success: function (res) {
+            alert('已分享');
+        },
+        cancel: function (res) {
+            alert('已取消');
+        }
+    });
 
 </script>
 </body>
