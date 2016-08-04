@@ -5,9 +5,7 @@
 
 </head>
 <body>
-<?php
-    print_r($news);
-?>
+
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     wx.config({
@@ -19,17 +17,15 @@
         jsApiList: [
             // 所有要调用的 API 都要加到这个列表中
             'checkJsApi',
-            'openLocation',
             'getLocation',
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage'
+            'onMenuShareTimeline'
+
         ]
     });
     wx.checkJsApi({
         jsApiList: [
             'getLocation',
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage'
+            'onMenuShareTimeline'
         ],
         success: function (res) {
             alert(JSON.stringify(res));
@@ -49,25 +45,6 @@
         });
 
     });
-
-
-        //  获取“分享给朋友”按钮点击状态及自定义分享内容接口
-        wx.onMenuShareAppMessage({
-            title: '圣诞老人送礼啦，现金红包人人领！', // 分享标题
-            desc: '“圣诞夺包”35000份礼包等你拆！', // 分享描述
-            link: encodeURI(curDomain + '/christmas/service/ChristmasSockOnline.home.do?area=cd'),//encodeURI(window.location.href.replace('&from=ad', '')), // 分享链接
-            imgUrl: url + '/public/christmas/img/shorejoin.jpg', // 分享图标
-            type: '', // 分享类型,music、video或link，不填默认为link
-            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-            success: function () {
-                // 用户确认分享后执行的回调函数
-                //Message.toast.success("分享成功！").appear();
-            },
-            cancel: function () {
-                // 用户取消分享后执行的回调函数
-                //alert('cancel');
-            }
-        });
 
 //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
     wx.onMenuShareTimeline({
