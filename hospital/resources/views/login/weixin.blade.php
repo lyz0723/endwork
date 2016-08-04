@@ -5,17 +5,14 @@
 
 </head>
 <body>
-<?php
-echo $news['Title'];
-?>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     wx.config({
         debug: false,
-        appId: "{$signPackage['appId']}",
-        timestamp: "{$signPackage['timestamp']}",
-        nonceStr: "{$signPackage['nonceStr']}",
-        signature: "{$signPackage['signature']}",
+        appId: '<?php echo $signPackage['appId'];?>',
+        timestamp: '<?php echo $signPackage["timestamp"];?>',
+        nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+        signature: '<?php echo $signPackage["signature"];?>',
         jsApiList: [
             // 所有要调用的 API 都要加到这个列表中
             'checkJsApi',
@@ -53,13 +50,13 @@ echo $news['Title'];
 
 //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
     wx.onMenuShareTimeline({
-        title: "{$news['Title']}",
-        link:"{$news['Url']}",
-        imgUrl: "{$news['PicUrl']}",
-        success: function (res) {
+        title: '<?php echo $news['Title'];?>',
+        link: '<?php echo $news['Url'];?>',
+        imgUrl: '<?php echo $news['PicUrl'];?>',
+        success: function () {
             alert('已分享');
         },
-        cancel: function (res) {
+        cancel: function () {
             alert('已取消');
         }
     });
