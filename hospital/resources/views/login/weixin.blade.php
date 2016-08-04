@@ -17,7 +17,8 @@
             // 所有要调用的 API 都要加到这个列表中
             'onMenuShareTimeline',
             'onMenuShareAppMessage',
-            'chooseImage'
+            'chooseImage',
+            'onMenuShareQZone'
         ]
     });
 
@@ -58,12 +59,24 @@
                 var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
             }
         });
+        //分享到QQ空间
+        wx.onMenuShareQZone({
+            title: '<?php echo $news['Title'];?>', // 分享标题
+            desc: '<?php echo $news['Description'];?>', // 分享描述
+            link: '<?php echo $news['Url'];?>', // 分享链接
+            imgUrl: '<?php echo $news['PicUrl'];?>', // 分享图标
+            success: function () {
+                alert('已分享');
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
     });
 
 
 
 
-//获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
 
 
 </script>
