@@ -127,7 +127,40 @@ class LoginController extends Controller
         $arr=json_decode($file,true);
         $jsapi_ticket=$arr['ticket'];
         return $jsapi_ticket;
+    }
+    //获取签名字段随机字符串
+    public function createNonceStr($length = 16) {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $str = "";
+        for ($i = 0; $i < $length; $i++) {
+            $str .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+        }
+        return $str;
+    }
 
+    //获取
+    public function getSignPackage(){
+        //获取jsapi_ticket
+        $jsapiTicket = $this->ticket();
+        //随机字符串
+        $nonceStr=$this->createNonceStr();
+        // 注意 URL 一定要动态获取，不能 hardcode.
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $timestamp = time();
+        // 这里参数的顺序要按照 key 值 ASCII 码升序排序
+        $string = "jsapi_ticket=$jsapiTicket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
+        $signature = sha1($string);
+
+        $signPackage = array(
+            "appId"     => "wx9036c924e93284c6",
+            "nonceStr"  => $nonceStr,
+            "timestamp" => $timestamp,
+            "url"       => $url,
+            "signature" => $signature,
+            "rawString" => $string
+        );
+        print_r($signPackage) ;
     }
 }
 ?>

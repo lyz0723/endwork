@@ -35,6 +35,7 @@ Route::get('Userlogin','LoginController@index');
 Route::post('login_do','LoginController@login_do');
 //
 Route::get('weixin','LoginController@weixin');
+//获取access_token
 Route::get('token','LoginController@getWxAccessToken');
 //获取微信公众号code
 Route::get('code','LoginController@code');
