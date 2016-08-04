@@ -47,36 +47,22 @@
             }
         });
 
-        wx.onMenuShareAppMessage({
-            title: '<?php echo $news['Title'];?>',
-            desc: '<?php echo $news['Description'];?>',
-            link: '<?php echo $news['Url'];?>',
-            imgUrl: '<?php echo $news['PicUrl'];?>',
-
-            success: function (res) {
-                alert('已分享');
-            },
-            cancel: function (res) {
-                alert('已取消');
-            }
-
-        });
-        wx.onMenuShareTimeline({
-            title: '<?php echo $news['Title'];?>',
-            link: '<?php echo $news['Url'];?>',
-            imgUrl: '<?php echo $news['PicUrl'];?>',
-            success: function (res) {
-                alert('已分享');
-            },
-            cancel: function (res) {
-                alert('已取消');
-            }
-        });
+        
 
     });
 
 
-
+    wx.onMenuShareTimeline({
+        title: '<?php echo $news['Title'];?>',
+        link: '<?php echo $news['Url'];?>',
+        imgUrl: '<?php echo $news['PicUrl'];?>',
+        success: function (res) {
+            alert('已分享');
+        },
+        cancel: function (res) {
+            alert('已取消');
+        }
+    });
 
 </script>
 </body>
