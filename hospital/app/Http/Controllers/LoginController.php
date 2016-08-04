@@ -161,6 +161,7 @@ class LoginController extends Controller
             "rawString" => $string
         );
         print_r($signPackage) ;
+        return view('weixin',['signPackage'=>$signPackage]);
     }
 }
 ?>
