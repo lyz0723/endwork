@@ -5,13 +5,13 @@
 
 </head>
 <body>
-<?php
-    print_r($news);
-?>
+
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
-    wx.config({
-        <?php echo $signPackage['appId'];?>
+    wx.config(
+            {<?php
+    print_r($news);
+?>
         debug: false,
         appId: '<?php echo $signPackage['appId'];?>',
         timestamp: '<?php echo $signPackage["timestamp"];?>',
