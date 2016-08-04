@@ -17,14 +17,15 @@
             // 所有要调用的 API 都要加到这个列表中
             'checkJsApi',
             'getLocation',
-            'onMenuShareTimeline'
-
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
         ]
     });
     wx.checkJsApi({
         jsApiList: [
             'getLocation',
-            'onMenuShareTimeline'
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
         ],
         success: function (res) {
             alert(JSON.stringify(res));
@@ -42,7 +43,7 @@
                 var accuracy = res.accuracy; // 位置精度
             }
         });
-
+        //享到朋友圈
         wx.onMenuShareTimeline({
             title: '<?php echo $news['Title'];?>',
             link: '<?php echo $news['Url'];?>',
@@ -52,6 +53,21 @@
             },
             cancel: function () {
                 alert('已取消');
+            }
+        });
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title: '<?php echo $news['Title'];?>', // 分享标题
+            desc: '<?php echo $news['Description'];?>', // 分享描述
+            link: '<?php echo $news['Url'];?>', // 分享链接
+            imgUrl: '<?php echo $news['PicUrl'];?>', // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
             }
         });
     });
