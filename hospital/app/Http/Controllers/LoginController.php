@@ -160,8 +160,9 @@ class LoginController extends Controller
             "signature" => $signature,
             "rawString" => $string
         );
-        print_r($signPackage) ;
-        return view('login/weixin',['signPackage'=>$signPackage]);
+        $news = array("Title" =>"微信公众平台开发实践", "Description"=>"本书共分10章，案例程序采用广泛流行的PHP、MySQL、XML、CSS、JavaScript、HTML5等程序语言及数据库实现。", "PicUrl" =>'http://images.cnitblog.com/i/340216/201404/301756448922305.jpg', "Url" =>'http://www.cnblogs.com/txw1958/p/weixin-development-best-practice.html');
+        //print_r($signPackage) ;
+        return view('login/weixin',['signPackage'=>$signPackage,'news'=>$news]);
     }
 }
 ?>
