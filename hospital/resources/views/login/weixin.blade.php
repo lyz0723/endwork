@@ -22,43 +22,67 @@
 
         ]
     });
-    wx.checkJsApi({
-        jsApiList: [
-            'getLocation',
-            'onMenuShareTimeline'
-        ],
-        success: function (res) {
-            alert(JSON.stringify(res));
-        }
-    });
+    {{--wx.checkJsApi({--}}
+        {{--jsApiList: [--}}
+            {{--'getLocation',--}}
+            {{--'onMenuShareTimeline'--}}
+        {{--],--}}
+        {{--success: function (res) {--}}
+            {{--alert(JSON.stringify(res));--}}
+        {{--}--}}
+    {{--});--}}
 
+    {{--wx.ready(function () {--}}
+        {{--wx.getLocation({--}}
+            {{--type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'--}}
+            {{--success: function (res) {--}}
+                {{--alert(1);--}}
+                {{--var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90--}}
+                {{--var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。--}}
+                {{--var speed = res.speed; // 速度，以米/每秒计--}}
+                {{--var accuracy = res.accuracy; // 位置精度--}}
+            {{--}--}}
+        {{--});--}}
+
+    {{--});--}}
+
+{{--//获取“分享到朋友圈”按钮点击状态及自定义分享内容接口--}}
+    {{--wx.onMenuShareTimeline({--}}
+        {{--title: '<?php echo $news['Title'];?>',--}}
+        {{--link: '<?php echo $news['Url'];?>',--}}
+        {{--imgUrl: '<?php echo $news['PicUrl'];?>',--}}
+        {{--success: function (res) {--}}
+            {{--alert('已分享');--}}
+        {{--},--}}
+        {{--cancel: function (res) {--}}
+            {{--alert('已取消');--}}
+        {{--}--}}
+    {{--});--}}
+</script>
+<script>
+    // 微信JSSDK开发
     wx.ready(function () {
-        wx.getLocation({
-            type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-            success: function (res) {
-                alert(1);
-                var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-                var speed = res.speed; // 速度，以米/每秒计
-                var accuracy = res.accuracy; // 位置精度
+        // 分享给朋友
+//        wx.onMenuShareAppMessage({
+//            title: '{sh:$wxShare.title}', // 商品名
+//            desc: '{sh:$wxShare.desc}', // 店铺名
+//            link: '{sh:$wxShare.link}', // 商品购买地址
+//            imgUrl: '{sh:$wxShare.imgUrl}', // 分享的图标
+//            fail: function (res) {
+//                alert(JSON.stringify(res));
+//            }
+//        });
+
+        // 分享到朋友圈
+        wx.onMenuShareTimeline({
+            Title: '{<?php $news['Title']?>}', // 商品名
+            Description: '{<?php echo $news['Description']?>}',
+            imgUrl: '{<?php echo $news['PicUrl']?>}', // 分享的图标
+            fail: function (res) {
+                alert(JSON.stringify(res));
             }
         });
-
     });
-
-//获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
-    wx.onMenuShareTimeline({
-        title: '<?php echo $news['Title'];?>',
-        link: '<?php echo $news['Url'];?>',
-        imgUrl: '<?php echo $news['PicUrl'];?>',
-        success: function (res) {
-            alert('已分享');
-        },
-        cancel: function (res) {
-            alert('已取消');
-        }
-    });
-
 </script>
 </body>
 </html>
