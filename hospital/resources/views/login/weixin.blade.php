@@ -43,19 +43,19 @@
             }
         });
 
+        wx.onMenuShareTimeline({
+            title: '<?php echo $news['Title'];?>',
+            link: '<?php echo $news['Url'];?>',
+            imgUrl: '<?php echo $news['PicUrl'];?>',
+            success: function () {
+                alert('已分享');
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
+    });
 
-    });
-    wx.onMenuShareTimeline({
-        title: '<?php echo $news['Title'];?>',
-        link: '<?php echo $news['Url'];?>',
-        imgUrl: '<?php echo $news['PicUrl'];?>',
-        success: function () {
-            alert('已分享');
-        },
-        cancel: function () {
-            alert('已取消');
-        }
-    });
 
 
 
