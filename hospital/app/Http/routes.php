@@ -33,6 +33,8 @@ Route::get('main','PersonController@main');
 Route::get('Userlogin','LoginController@index');
 //判断用户登录
 Route::post('login_do','LoginController@login_do');
+//验证连接
+Route::get('lianjie','LoginController@lianjie');
 //
 Route::get('weixin','LoginController@weixin');
 //获取access_token
