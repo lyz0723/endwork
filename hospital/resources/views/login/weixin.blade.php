@@ -25,6 +25,7 @@
             'onMenuShareAppMessage'
         ]
     });
+</script>
     wx.checkJsApi({
         jsApiList: [
             'getLocation',
@@ -87,11 +88,5 @@
             // alert(JSON.stringify(res));
         }
     });
-
-
-
-
-
-</script>
 </body>
 </html>
