@@ -205,6 +205,7 @@ class LoginController extends Controller
         $appId="wx9036c924e93284c6";
         $appSecret="b6ace35d7f3820f253b6c770d6a028e4";
         $code=Request::input('code');
+        echo $code;
         //通过code获取openid
         $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appId&secret=$appSecret&code=$code&grant_type=authorization_code";
         $arr=file_get_contents($url);
