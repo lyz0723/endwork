@@ -213,9 +213,17 @@ class LoginController extends Controller
         $openid=$data['openid'];
         if($code){
             $time=time();
-            DB::table('user')->insert(
-                array('datetime' => $time));
+            $uid = DB::table('user')->insertGetId(
+                array('datetime' =>$time)
+            );
+        }else{
+            exit('重新登录');
         }
+        if($openid){
+            DB::table('user_open')->insert(
+                array('openid' => $openid,'u_id'=>$uid));
+        }
+
     }
 }
 ?>
