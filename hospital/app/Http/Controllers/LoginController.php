@@ -183,9 +183,33 @@ class LoginController extends Controller
             "signature" => $signature,
             "rawString" => $string
         );
-        $news = array("Title" =>"微信公众平台开发实践", "Description"=>"本书共分10章，案例程序采用广泛流行的PHP、MySQL、XML、CSS、JavaScript、HTML5等程序语言及数据库实现。", "PicUrl" =>'http://images.cnitblog.com/i/340216/201404/301756448922305.jpg', "Url" =>'http://www.cnblogs.com/txw1958/p/weixin-development-best-practice.html');
+        $news = array("Title" =>"微信公众平台开发实践",
+            "Description"=>"本书共分10章，案例程序采用广泛流行的PHP、MySQL、XML、CSS、JavaScript、HTML5等程序语言及数据库实现。",
+            "PicUrl" =>'http://images.cnitblog.com/i/340216/201404/301756448922305.jpg',
+            "Url" =>'http://www.cnblogs.com/txw1958/p/weixin-development-best-practice.html');
         //print_r($signPackage) ;
         return view('login/weixin',['signPackage'=>$signPackage,'news'=>$news]);
+    }
+    //微信登录
+    public function Login_code(){
+        //公众号appid
+        $appId="wx9036c924e93284c6";
+        //根据appid获取code
+        $url="http://www.zhangqiuxiang.top/endwork/hospital/public/get_code";
+        $url=urlencode($url);
+        $path="https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appId&redirect_uri=$url&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+        header( 'location:'. $path);
+    }
+    //获取微信公众号的code
+    public function get_code(){
+        $appId="wx9036c924e93284c6";
+        $appSecret="b6ace35d7f3820f253b6c770d6a028e4";
+        $code=Request::input('code');
+        //通过code获取openid
+        $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appId&secret=$appSecret&code=$code&grant_type=authorization_code";
+        $arr=file_get_contents($url);
+        $data=json_decode($arr,true);
+        print_r($data);
     }
 }
 ?>

@@ -41,6 +41,7 @@ Route::get('weixin','LoginController@weixin');
 Route::get('token','LoginController@getWxAccessToken');
 //获取微信公众号code
 Route::get('code','LoginController@code');
+
 /*
  * 微信JS-SDK
  * */
@@ -52,7 +53,12 @@ Route::get('SignPackage','LoginController@getSignPackage');
 Route::get('Userregister','RegisterController@index');
 //验证码
 Route::get('kit/captcha/{tmp}', 'CodeController@captcha');
+/*
+ *微信登录
+ **/
 
-
+Route::get('Login_code','LoginController@Login_code');
+//获取微信公众号的code
+Route::get('get_code','LoginController@getCode');
 
 ?>
