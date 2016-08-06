@@ -212,23 +212,23 @@ class LoginController extends Controller
        $data=json_decode($arr,true);
         //print_r($data);
         $openid=$data['openid'];
-        echo $openid;
-//        if($code){
-//            $time=time();
-//            $uid = DB::table('user')->insertGetId(
-//                array('datetime' =>$time)
-//            );
-//        }else{
-//            return redirect('Login_code');
-//        }
-//
-//        if($uid){
-//            DB::table('user_open')->insert(
-//                array('openid' => $openid,'u_id'=>$uid));
-//                $user=array('u_id'=>$uid,'openid'=>$openid);
-//                Session::put('user',$user);
-//                return redirect('showIndex');
-//        }
+        //echo $openid;
+        if($code){
+            $time=time();
+            $uid = DB::table('user')->insertGetId(
+                array('datetime' =>$time)
+            );
+        }else{
+            return redirect('Login_code');
+        }
+
+        if($uid){
+            DB::table('user_open')->insert(
+                array('openid' => $openid,'u_id'=>$uid));
+                $user=array('u_id'=>$uid,'openid'=>$openid);
+                Session::put('user',$user);
+                return redirect('showIndex');
+        }
     }
     public function showIndex(){
         $user= Session::get('user');
