@@ -210,9 +210,9 @@ class LoginController extends Controller
         $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appId&secret=$appSecret&code=$code&grant_type=authorization_code";
         $arr=file_get_contents($url);
        $data=json_decode($arr,true);
-        print_r($data);
-//        $openid=$data['openid'];
-//        echo $openid;
+        //print_r($data);
+        $openid=$data['openid'];
+        echo $openid;
 //        if($code){
 //            $time=time();
 //            $uid = DB::table('user')->insertGetId(
