@@ -211,19 +211,36 @@ class LoginController extends Controller
         $arr=file_get_contents($url);
         $data=json_decode($arr,true);
         $openid=$data['openid'];
-        if($code){
-            $time=time();
-            $uid = DB::table('user')->insertGetId(
-                array('datetime' =>$time)
-            );
+        echo $openid;
+//        if($code){
+//            $time=time();
+//            $uid = DB::table('user')->insertGetId(
+//                array('datetime' =>$time)
+//            );
+//        }else{
+//            return redirect('Login_code');
+//        }
+//
+//        if($uid){
+//            DB::table('user_open')->insert(
+//                array('openid' => $openid,'u_id'=>$uid));
+//                $user=array('u_id'=>$uid,'openid'=>$openid);
+//                Session::put('user',$user);
+//                return redirect('showIndex');
+//        }
+    }
+    public function showIndex(){
+        $user= Session::get('user');
+        $openid=$user['openid'];
+        $arr=DB::table('user_open')->where('openid',$openid)->first();
+        $uid=$arr->u_id;
+        $row=DB::table('user')->first();
+        $u_id=$row->uid;
+        if($uid==$u_id &&$uid!=0 &&$u_id!=0){
+            echo "欢迎光临";
         }else{
-            exit('重新登录');
+            return redirect('Login_code');
         }
-        if($openid){
-            DB::table('user_open')->insert(
-                array('openid' => $openid,'u_id'=>$uid));
-        }
-
     }
 }
 ?>

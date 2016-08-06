@@ -60,5 +60,6 @@ Route::get('kit/captcha/{tmp}', 'CodeController@captcha');
 Route::get('Login_code','LoginController@Login_code');
 //获取微信公众号的code
 Route::get('get_code','LoginController@get_code');
-
+//微信登录后首页
+Route::get('showIndex','LoginController@showIndex');
 ?>
