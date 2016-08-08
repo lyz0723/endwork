@@ -5,7 +5,7 @@
 
 </head>
 <body>
-<script src="{{URL::asset('/')}}jquery.js"></script>
+<script src="{{URL::asset('/')}}js/jquery.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <a id="get-location" href="javascript:;">获取地址</a>
 <script>
@@ -71,7 +71,7 @@
 
 
     $("#get-location").click(function(){
-        alert(1)
+
     });
 
 
