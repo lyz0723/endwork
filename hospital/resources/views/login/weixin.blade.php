@@ -6,6 +6,7 @@
 </head>
 <body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<a id="get-location" href="javascript:;">获取地址</a>
 <script>
     wx.config({
         debug: true,
@@ -65,28 +66,14 @@
                 alert('已取消');
             }
         });
-        //使用微信内置地图查看位置接口
-        wx.openLocation({
-            latitude: 0, // 纬度，浮点数，范围为90 ~ -90
-            longitude: 0, // 经度，浮点数，范围为180 ~ -180。
-            name: '北京八维研修学院', // 位置名
-            address: '北京市海淀区软件园南', // 地址详情说明
-            scale: 2, // 地图缩放级别,整形值,范围从1~28。默认为最大
-            infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
-        });
-        //获取地理位置接口
-        wx.getLocation({
-            type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-            success: function (res) {
-                var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-                var speed = res.speed; // 速度，以米/每秒计
-                var accuracy = res.accuracy; // 位置精度
-            }
-        });
     });
 
 
+    $("#get-location").click(function(){
+        alert(1)
+    });
+
+   
 
 
 
