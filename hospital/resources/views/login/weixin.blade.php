@@ -71,7 +71,7 @@
 
 
     $("#get-location").click(function(){
-
+       alert(1)
     });
 
 
