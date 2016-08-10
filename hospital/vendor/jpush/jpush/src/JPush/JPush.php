@@ -25,7 +25,6 @@ class JPush {
     private $retryTimes;
     private $logFile;
 
-
     public function __construct($appKey, $masterSecret, $logFile=self::DEFAULT_LOG_FILE, $retryTimes=self::DEFAULT_MAX_RETRY_TIMES) {
         if (is_null($appKey) || is_null($masterSecret)) {
             throw new InvalidArgumentException("appKey and masterSecret must be set.");
