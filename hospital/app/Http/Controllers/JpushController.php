@@ -16,7 +16,7 @@ class JpushController extends Controller{
             ->setNotificationAlert('Hi, JPush')
             ->send();
 
-        echo 'Result=' . json_encode($result) . $br;
+        echo 'Result=' . json_encode($result);
     }
 }
 
