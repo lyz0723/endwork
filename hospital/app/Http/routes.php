@@ -62,4 +62,7 @@ Route::get('Login_code','LoginController@Login_code');
 Route::get('get_code','LoginController@get_code');
 //微信登录后首页
 Route::get('showIndex','LoginController@showIndex');
+
+
+Route::get('jpush','JpushController@showIndex');
 ?>

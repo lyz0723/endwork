@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\CodeController' => $baseDir . '/app/Http/Controllers/CodeController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\IndexController' => $baseDir . '/app/Http/Controllers/IndexController.php',
+    'App\\Http\\Controllers\\JpushController' => $baseDir . '/app/Http/Controllers/JpushController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\PersonController' => $baseDir . '/app/Http/Controllers/PersonController.php',
     'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',

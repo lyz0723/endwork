@@ -18,6 +18,7 @@ class ComposerStaticInite076afe45cb086ab2da8c82077e278c9
         '841780ea2e1d6545ea3a253239d59c05' => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '968b13b9abb3514a5bb0365cd5f391eb' => __DIR__ . '/..' . '/jpush/jpush/src/JPush/JPush.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -244,6 +245,13 @@ class ComposerStaticInite076afe45cb086ab2da8c82077e278c9
     );
 
     public static $prefixesPsr0 = array (
+        'j' => 
+        array (
+            'jpush' => 
+            array (
+                0 => __DIR__ . '/..' . '/jpush/jpush/src',
+            ),
+        ),
         'S' => 
         array (
             'SimpleSoftwareIO\\QrCode\\' => 
@@ -325,6 +333,7 @@ class ComposerStaticInite076afe45cb086ab2da8c82077e278c9
         'App\\Http\\Controllers\\CodeController' => __DIR__ . '/../..' . '/app/Http/Controllers/CodeController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
+        'App\\Http\\Controllers\\JpushController' => __DIR__ . '/../..' . '/app/Http/Controllers/JpushController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\PersonController' => __DIR__ . '/../..' . '/app/Http/Controllers/PersonController.php',
         'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
