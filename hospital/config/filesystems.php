@@ -79,7 +79,18 @@ return [
             'region'    => 'IAD',
             'url_type'  => 'publicURL',
         ],
-
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'laravelacademy.com1.z0.glb.clouddn.com', //你的七牛域名
+                'https'     => 'www.zhangqiuxiang.com',         //你的HTTPS域名
+                'custom'    => 'static.laravelacademy.org',     //你的自定义域名
+            ],
+            'access_key'=> 'XO-1G_qWTqbTVtyX42wVL4G8ss7O4M_hHN3Dg8hg',  //AccessKey
+            'secret_key'=> 'PrbG8JyaKTJiCB3uywyA_catJ3qMMhSZo0njJe20',  //SecretKey
+            'bucket'    => 'lyz0723',  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+        ],
     ],
 
 ];

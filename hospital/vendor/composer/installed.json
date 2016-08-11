@@ -3724,5 +3724,59 @@
         ],
         "description": "JPush API PHP Client",
         "homepage": "http://docs.jpush.cn/display/dev/Push-API-v3"
+    },
+    {
+        "name": "zgldh/qiniu-laravel-storage",
+        "version": "v0.4.2",
+        "version_normalized": "0.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/zgldh/qiniu-laravel-storage.git",
+            "reference": "679424efd3084dad835859597f0f0d8bbfda56e2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/zgldh/qiniu-laravel-storage/zipball/679424efd3084dad835859597f0f0d8bbfda56e2",
+            "reference": "679424efd3084dad835859597f0f0d8bbfda56e2",
+            "shasum": ""
+        },
+        "require": {
+            "league/flysystem": "^1.0",
+            "php": ">=5.3.3",
+            "qiniu/php-sdk": "~7.0"
+        },
+        "time": "2016-06-16 12:53:43",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "zgldh\\QiniuStorage\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "zgldh",
+                "email": "zgldh@hotmail.com",
+                "role": "Original Developer"
+            },
+            {
+                "name": "abcsun",
+                "email": "chenglongsun_nj@163.com",
+                "homepage": "http://github.com/abcsun",
+                "role": "Developer"
+            }
+        ],
+        "description": "Qiniu Resource (Cloud) Storage SDK for Laravel 5",
+        "keywords": [
+            "cloud",
+            "laravel",
+            "qiniu",
+            "sdk",
+            "storage"
+        ]
     }
 ]

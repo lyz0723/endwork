@@ -65,4 +65,7 @@ Route::get('showIndex','LoginController@showIndex');
 
 
 Route::get('jpush','JpushController@showIndex');
+//七牛云存储
+Route::get('Qiniu','QiniuController@index');
+Route::post('file','QiniuController@file');
 ?>

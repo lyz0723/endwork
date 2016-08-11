@@ -10,7 +10,8 @@
       "gregwar/captcha": "1.*",
         "simplesoftwareio/simple-qrcode": "1.3.*",
         "itbdw/laravel-storage-qiniu": "^1.0",
-      "jpush/jpush": "v3.3.9"
+      "jpush/jpush": "v3.3.9",
+        "zgldh/qiniu-laravel-storage": "^0.4.2"
 
 
     },
