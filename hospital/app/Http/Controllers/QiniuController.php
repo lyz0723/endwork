@@ -24,6 +24,5 @@ class QiniuController extends Controller{
         $contents=file_get_contents($path."/".$filename);
         $disk->put($filename,$contents);
     }
-
 }
 ?>
